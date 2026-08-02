@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base { body { @apply min-h-screen bg-ink text-zinc-100 antialiased; } * { @apply border-line; } }
+@layer components { .surface { @apply rounded-2xl border bg-panel/80 shadow-2xl shadow-black/10; } .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500; } .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-yellow-300 disabled:cursor-not-allowed disabled:opacity-50; } .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-sm font-medium text-zinc-200 transition hover:bg-zinc-800; } }

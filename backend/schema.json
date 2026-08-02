@@ -1,0 +1,274 @@
+{
+  "$defs": {
+    "LegalIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "issue": {
+          "title": "Issue",
+          "type": "string"
+        },
+        "context": {
+          "title": "Context",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue",
+        "context"
+      ],
+      "title": "LegalIssue",
+      "type": "object"
+    },
+    "Party": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "role"
+      ],
+      "title": "Party",
+      "type": "object"
+    },
+    "SourcedItem": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "page_references": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Page References",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "page_references"
+      ],
+      "title": "SourcedItem",
+      "type": "object"
+    },
+    "TimelineEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Date"
+        },
+        "event": {
+          "title": "Event",
+          "type": "string"
+        },
+        "page_references": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Page References",
+          "type": "array"
+        }
+      },
+      "required": [
+        "date",
+        "event",
+        "page_references"
+      ],
+      "title": "TimelineEvent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "case_summary": {
+      "title": "Case Summary",
+      "type": "string"
+    },
+    "court_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Court Name"
+    },
+    "judge_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Judge Name"
+    },
+    "case_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Case Number"
+    },
+    "case_year": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Case Year"
+    },
+    "case_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Case Type"
+    },
+    "parties": {
+      "items": {
+        "$ref": "#/$defs/Party"
+      },
+      "title": "Parties",
+      "type": "array"
+    },
+    "legal_sections": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Legal Sections",
+      "type": "array"
+    },
+    "legal_issues": {
+      "items": {
+        "$ref": "#/$defs/LegalIssue"
+      },
+      "title": "Legal Issues",
+      "type": "array"
+    },
+    "important_facts": {
+      "items": {
+        "$ref": "#/$defs/SourcedItem"
+      },
+      "title": "Important Facts",
+      "type": "array"
+    },
+    "timeline": {
+      "items": {
+        "$ref": "#/$defs/TimelineEvent"
+      },
+      "title": "Timeline",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "relief_sought": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Relief Sought"
+    },
+    "missing_information": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Information",
+      "type": "array"
+    },
+    "suggested_questions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Suggested Questions",
+      "type": "array"
+    },
+    "hearing_preparation_checklist": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Hearing Preparation Checklist",
+      "type": "array"
+    },
+    "next_steps": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Next Steps",
+      "type": "array"
+    },
+    "confidence_score": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Confidence Score",
+      "type": "integer"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_summary",
+    "court_name",
+    "judge_name",
+    "case_number",
+    "case_year",
+    "case_type",
+    "parties",
+    "legal_sections",
+    "legal_issues",
+    "important_facts",
+    "timeline",
+    "evidence",
+    "relief_sought",
+    "missing_information",
+    "suggested_questions",
+    "hearing_preparation_checklist",
+    "next_steps",
+    "confidence_score",
+    "disclaimer"
+  ],
+  "title": "CaseAnalysis",
+  "type": "object"
+}
