@@ -2,7 +2,7 @@ import type { Case, Report, Status } from "../types";
 
 const BASE_URL =
   import.meta.env.VITE_API_BASE_URL ??
-  "http://127.0.0.1:8000/api/v1";
+  "https://lexpilot-7r8w.onrender.com";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const url = `${BASE_URL}${path}`;
