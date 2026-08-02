@@ -2,7 +2,7 @@ import type { Case, Report, Status } from "../types";
 
 const BASE_URL =
   import.meta.env.VITE_API_BASE_URL ??
-  "https://lexpilot-7r8w.onrender.com";
+  "https://lex-pilot-lzx6bs7lw-safin-mulani-409s-projects.vercel.app";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const url = `${BASE_URL}${path}`;
