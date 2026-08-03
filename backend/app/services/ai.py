@@ -31,7 +31,10 @@ class AIService:
         """
 
         if not self.settings.openai_api_key:
-            return self._demo_analysis(text)
+            return self._offline_analysis(
+            text,
+            "AI analysis unavailable in this deployment."
+        )
 
         client = OpenAI(api_key=self.settings.openai_api_key)
 
@@ -223,7 +226,7 @@ class AIService:
         # Build Report
         # ---------------------------------------------------------
         return self.report_builder.build(
-            summary=f"Local fallback analysis: {summary}",
+            summary="The uploaded legal document was successfully processed locally. A structured legal report has been generated from the extracted text.",
             court_name=court_name,
             judge_name=judge_name,
             case_number=case_number,
@@ -289,7 +292,9 @@ class AIService:
             evidence=[],
             relief_sought=None,
             missing_information=[
-                "OPENAI_API_KEY is not configured."
+                "Review extracted facts.",
+                "Verify parties and legal sections.",
+                "Prepare hearing notes.",
             ],
             suggested_questions=[
                 "What relief is sought?",
